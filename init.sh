@@ -4,7 +4,7 @@ set -e -u
 
 pip install -r requirements.txt
 
-if [[ "$FLASK_ENV" == "development "]]; then
+if [[ "$FLASK_ENV" == "development" ]]; then
   flask run --host 0.0.0.0 --port 80
 else
   # Production
