@@ -2,10 +2,12 @@
 
 set -e -u
 
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
 if [[ "$FLASK_ENV" == "development" ]]; then
-  flask run --host 0.0.0.0 --port 80
+  flask run
 else
   # Production
   nohup /usr/local/bin/uwsgi --uid 1000 --gid 1000 --ini app.ini 2>&1 > /dev/stdout &
