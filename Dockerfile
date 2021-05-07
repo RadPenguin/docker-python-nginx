@@ -32,6 +32,12 @@ RUN rm -f /var/log/nginx/* && \
   ln -sf /dev/stdout /var/log/nginx/access.log && \
   ln -sf /dev/stderr /var/log/nginx/error.log
 
+# Install Node and NPM.
+RUN mkdir -p /usr/local/bin/node && \
+  cd /usr/local/bin/node && \
+  curl --silent https://nodejs.org/dist/v14.16.1/node-v14.16.1-linux-x64.tar.xz | tar Jx --strip-components=1
+RUN echo "export PATH=\$PATH:/usr/local/bin/node/bin" >> /etc/bash.bashrc
+
 # Clean up
 RUN apt-get clean && rm -rf \
   /tmp/* \
