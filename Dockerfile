@@ -8,7 +8,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL C.UTF-8
 ENV TZ="America/Edmonton"
-ENV FLASK_ENV="production"
+ENV PATH=$PATH:/usr/local/bin/node/bin
 
 WORKDIR /app
 
